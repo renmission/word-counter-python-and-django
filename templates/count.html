@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+   <section class="jumbotron ">
+       <div class="container">
+           <div class="row mt-1 pt-1">
+                <div class="col-md-12">
+
+                    <a href="{% url 'home' %}" class="btn btn-primary bt-lg">Count Again</a> <br />
+
+                    <h1>There are {{ count }} words in your text</h1>
+
+
+                    <hr>
+                     <br />
+
+                    <h2>Your Text:</h2>
+                    {{ fulltext }}
+                    <br />
+                    <hr>
+                     <br />
+
+                    <h2>Word Count:</h2>
+                    {% for word, count_total in sorted_words %}
+
+                    <strong>{{ word }}</strong> : {{ count_total }}
+                    <br />
+
+                    {% endfor %}
+
+                </div>
+
+           </div>
+
+       </div>
+
+   </section>
+
+
+
+{% endblock %}
